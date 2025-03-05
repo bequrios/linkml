@@ -1,28 +1,29 @@
 id: https://ch.paf.link
 name: ch-paf-link
 prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
   linkml: https://w3id.org/linkml/
   chpaf: https://ch.paf.link/
   parl: https://politics.ld.admin.ch/parliamentary-affair/
-  report: https://politics.ld.admin.ch/procedural-request/report/
 imports:
   - linkml:types
 default_prefix: chpaf
 default_range: string
   
 classes:
+  
   ParliamentaryAffairIdentifierEntity:
     slots:
       - id
       - parliamentaryAffairIdentifier
     id_prefixes:
       - parl
+  
   ProceduralRequestReportActivity:
     slots:
       - id
       - proceduralRequestReportYear
-    id_prefixes:
-      - report
+  
   ParliamentaryDataContainer:
     tree_root: true
     attributes:
@@ -34,6 +35,7 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: ProceduralRequestReportActivity
+
 slots:
   id:
     identifier: true
@@ -41,3 +43,10 @@ slots:
     required: true
   proceduralRequestReportYear:
     required: true
+    range: gYear
+
+types:
+  gYear:
+    uri: xsd:gYear
+    base: str
+    pattern: "^[0-9]{4}$"
