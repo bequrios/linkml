@@ -2,6 +2,7 @@ id: https://ch.paf.link
 name: ch-paf-link
 prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
+  prov: http://www.w3.org/ns/prov#
   linkml: https://w3id.org/linkml/
   chpaf: https://ch.paf.link/
   parl: https://politics.ld.admin.ch/parliamentary-affair/
@@ -23,27 +24,45 @@ classes:
     slots:
       - id
       - proceduralRequestReportYear
+      - used
+    slot_usage:
+      used:
+        range: ProceduralRequestReportEntity
+
+  ProceduralRequestReportEntity:
+    slots:
+      - id
+      - hallo
   
   ParliamentaryDataContainer:
     tree_root: true
     attributes:
-      affair:
-        multivalued: true
-        inlined_as_list: true
-        range: ParliamentaryAffairIdentifierEntity
-      report:
-        multivalued: true
-        inlined_as_list: true
-        range: ProceduralRequestReportActivity
+      - parliamentaryAffairIdentifierEntity:
+          multivalued: true
+          inlined_as_list: true
+          range: ParliamentaryAffairIdentifierEntity
+      - proceduralRequestReportActivity:
+          multivalued: true
+          inlined_as_list: true
+          range: ProceduralRequestReportActivity
+      - proceduralRequestReportEntity:
+          multivalued: true
+          inlined_as_list: true
+          range: ProceduralRequestReportEntity
 
 slots:
   id:
     identifier: true
+  used:
+    slot_uri: prov:used
   parliamentaryAffairIdentifier:
     required: true
   proceduralRequestReportYear:
     required: true
     range: gYear
+  hallo:
+    required: true
+    range: string
 
 types:
   gYear:

@@ -1,5 +1,6 @@
 @prefix chpaf: <https://ch.paf.link/> .
 @prefix parl: <https://politics.ld.admin.ch/parliamentary-affair/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 parl:19.1234 a chpaf:ParliamentaryAffairIdentifierEntity ;
@@ -9,11 +10,16 @@ parl:19.5678 a chpaf:ParliamentaryAffairIdentifierEntity ;
     chpaf:parliamentaryAffairIdentifier "19.5678" .
 
 <https://politics.ld.admin.ch/procedural-request/report/2019/activity> a chpaf:ProceduralRequestReportActivity ;
+    prov:used <https://politics.ld.admin.ch/procedural-request/report/2019/entity> ;
     chpaf:proceduralRequestReportYear "2019"^^xsd:gYear .
 
+<https://politics.ld.admin.ch/procedural-request/report/2019/entity> a chpaf:ProceduralRequestReportEntity ;
+    chpaf:hallo "world" .
+
 [] a chpaf:ParliamentaryDataContainer ;
-    chpaf:affair parl:19.1234,
+    chpaf:parliamentaryAffairIdentifierEntity parl:19.1234,
         parl:19.5678 ;
-    chpaf:report <https://politics.ld.admin.ch/procedural-request/report/2019/activity> .
+    chpaf:proceduralRequestReportActivity <https://politics.ld.admin.ch/procedural-request/report/2019/activity> ;
+    chpaf:proceduralRequestReportEntity <https://politics.ld.admin.ch/procedural-request/report/2019/entity> .
 
 
