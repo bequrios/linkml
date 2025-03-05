@@ -1,0 +1,7 @@
+@prefix chpaf: <https://ch.paf.link/> .
+@prefix parl: <https://politics.ld.admin.ch/parliamentary-affair/> .
+
+parl:19.1234 a chpaf:ParliamentaryAffairIdentifierEntity ;
+    chpaf:parliamentaryAffairIdentifier "19.1234" .
+
+

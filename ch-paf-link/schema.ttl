@@ -1,0 +1,40 @@
+@prefix chpaf: <https://ch.paf.link/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ch.paf.link.owl.ttl> a owl:Ontology ;
+    rdfs:label "ch-paf-link" .
+
+chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
+    rdfs:label "ParliamentaryAffairIdentifierEntity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ] ;
+    skos:inScheme <https://ch.paf.link> .
+
+chpaf:id a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    skos:inScheme <https://ch.paf.link> .
+
+chpaf:parliamentaryAffairIdentifier a owl:DatatypeProperty ;
+    rdfs:label "parliamentaryAffairIdentifier" ;
+    skos:inScheme <https://ch.paf.link> .
+
+

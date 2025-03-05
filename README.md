@@ -1,2 +1,3 @@
-# linkml
-First Experiments with LinkML Schemas
+# LinkML
+
+First Experiments with LinkML Schemas.

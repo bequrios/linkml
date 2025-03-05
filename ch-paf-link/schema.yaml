@@ -1,0 +1,20 @@
+id: https://ch.paf.link
+name: ch-paf-link
+prefixes:
+  linkml: https://w3id.org/linkml/
+  parl: https://politics.ld.admin.ch/parliamentary-affair/
+  chpaf: https://ch.paf.link/
+imports:
+  - linkml:types
+default_prefix: chpaf
+default_range: string
+  
+classes:
+  ParliamentaryAffairIdentifierEntity:
+    attributes:
+      id:
+        identifier: true
+      parliamentaryAffairIdentifier:
+        required: true
+    id_prefixes:
+      - parl
