@@ -12,20 +12,20 @@
 chpaf:ViewPoint a owl:Class ;
     rdfs:label "ViewPoint" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom chpaf:ProceduralRequestReportEntity ;
-            owl:onProperty chpaf:ProceduralRequestReportEntities ],
-        [ a owl:Restriction ;
             owl:allValuesFrom chpaf:ParliamentaryAffairIdentifierEntity ;
-            owl:onProperty chpaf:ParliamentaryAffairIdentifierEntities ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty chpaf:ProceduralRequestReportActivities ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty chpaf:ParliamentaryAffairIdentifierEntities ],
         [ a owl:Restriction ;
             owl:allValuesFrom chpaf:ProceduralRequestReportActivity ;
             owl:onProperty chpaf:ProceduralRequestReportActivities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:ProceduralRequestReportActivities ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom chpaf:ProceduralRequestReportEntity ;
+            owl:onProperty chpaf:ProceduralRequestReportEntities ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:ParliamentaryAffairIdentifierEntities ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty chpaf:ProceduralRequestReportEntities ] ;
@@ -45,7 +45,7 @@ chpaf:ParliamentaryAffairIdentifierEntities a owl:ObjectProperty ;
 chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
     rdfs:label "ParliamentaryAffairIdentifierEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
@@ -54,14 +54,14 @@ chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:parliamentaryAffairIdentifier ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty chpaf:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty chpaf:parliamentaryAffairIdentifier ] ;
+            owl:onProperty chpaf:id ] ;
     skos:inScheme <https://ch.paf.link> .
 
 chpaf:ProceduralRequestReportActivities a owl:ObjectProperty ;
@@ -72,21 +72,6 @@ chpaf:ProceduralRequestReportActivities a owl:ObjectProperty ;
 chpaf:ProceduralRequestReportActivity a owl:Class ;
     rdfs:label "ProceduralRequestReportActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty chpaf:proceduralRequestReportYear ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty chpaf:used ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty chpaf:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:gYear ;
-            owl:onProperty chpaf:proceduralRequestReportYear ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty chpaf:proceduralRequestReportYear ],
-        [ a owl:Restriction ;
             owl:allValuesFrom chpaf:ProceduralRequestReportEntity ;
             owl:onProperty chpaf:used ],
         [ a owl:Restriction ;
@@ -94,10 +79,25 @@ chpaf:ProceduralRequestReportActivity a owl:Class ;
             owl:onProperty chpaf:used ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty chpaf:proceduralRequestReportYear ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:used ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:gYear ;
+            owl:onProperty chpaf:proceduralRequestReportYear ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty chpaf:id ] ;
+            owl:onProperty chpaf:proceduralRequestReportYear ] ;
     skos:inScheme <https://ch.paf.link> .
 
 chpaf:ProceduralRequestReportEntities a owl:ObjectProperty ;
@@ -111,10 +111,10 @@ chpaf:ProceduralRequestReportEntity a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 1 ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:id ] ;
     skos:inScheme <https://ch.paf.link> .
 

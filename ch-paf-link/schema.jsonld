@@ -7,21 +7,46 @@
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
     {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    {
+      "prefix_prefix": "prov",
+      "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "dcterm",
+      "prefix_reference": "http://purl.org/dc/terms/"
+    },
+    {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
     {
-      "prefix_prefix": "parl",
-      "prefix_reference": "https://politics.ld.admin.ch/parliamentary-affair/"
+      "prefix_prefix": "paf",
+      "prefix_reference": "https://paf.link/"
     },
     {
       "prefix_prefix": "chpaf",
       "prefix_reference": "https://ch.paf.link/"
+    },
+    {
+      "prefix_prefix": "parl",
+      "prefix_reference": "https://politics.ld.admin.ch/parliamentary-affair/"
     }
   ],
   "default_prefix": "chpaf",
   "default_range": "string",
   "types": [
+    {
+      "name": "gYear",
+      "definition_uri": "https://ch.paf.link/GYear",
+      "from_schema": "https://ch.paf.link",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#gYear",
+      "pattern": "^[0-9]{4}$",
+      "@type": "TypeDefinition"
+    },
     {
       "name": "string",
       "definition_uri": "https://w3id.org/linkml/String",
@@ -338,12 +363,29 @@
       "from_schema": "https://ch.paf.link",
       "slot_uri": "https://ch.paf.link/id",
       "identifier": true,
-      "owner": "ParliamentaryAffairIdentifierEntity",
+      "owner": "ProceduralRequestReportEntity",
       "domain_of": [
-        "ParliamentaryAffairIdentifierEntity"
+        "ParliamentaryAffairIdentifierEntity",
+        "ProceduralRequestReportActivity",
+        "ProceduralRequestReportEntity"
       ],
       "range": "string",
       "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "used",
+      "definition_uri": "https://ch.paf.link/used",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://www.w3.org/ns/prov#used"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#used",
+      "owner": "ProceduralRequestReportActivity",
+      "domain_of": [
+        "ProceduralRequestReportActivity"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -360,18 +402,90 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "container__affairs",
+      "name": "proceduralRequestReportYear",
+      "definition_uri": "https://ch.paf.link/proceduralRequestReportYear",
       "from_schema": "https://ch.paf.link",
-      "slot_uri": "https://ch.paf.link/affairs",
-      "alias": "affairs",
-      "owner": "Container",
+      "slot_uri": "https://ch.paf.link/proceduralRequestReportYear",
+      "owner": "ProceduralRequestReportActivity",
       "domain_of": [
-        "Container"
+        "ProceduralRequestReportActivity"
+      ],
+      "range": "gYear",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ParliamentaryAffairIdentifierEntities",
+      "definition_uri": "https://ch.paf.link/ParliamentaryAffairIdentifierEntities",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/hasPart",
+      "owner": "ViewPoint",
+      "domain_of": [
+        "ViewPoint"
       ],
       "range": "ParliamentaryAffairIdentifierEntity",
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProceduralRequestReportActivities",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestReportActivities",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/hasPart",
+      "owner": "ViewPoint",
+      "domain_of": [
+        "ViewPoint"
+      ],
+      "range": "ProceduralRequestReportActivity",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProceduralRequestReportEntities",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestReportEntities",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/hasPart",
+      "owner": "ViewPoint",
+      "domain_of": [
+        "ViewPoint"
+      ],
+      "range": "ProceduralRequestReportEntity",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProceduralRequestReportActivity_used",
+      "definition_uri": "https://ch.paf.link/used",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://www.w3.org/ns/prov#used"
+      ],
+      "is_a": "used",
+      "domain": "ProceduralRequestReportActivity",
+      "slot_uri": "http://www.w3.org/ns/prov#used",
+      "alias": "used",
+      "owner": "ProceduralRequestReportActivity",
+      "domain_of": [
+        "ProceduralRequestReportActivity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "used",
+      "range": "ProceduralRequestReportEntity",
       "@type": "SlotDefinition"
     }
   ],
@@ -392,31 +506,52 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Container",
-      "definition_uri": "https://ch.paf.link/Container",
+      "name": "ProceduralRequestReportActivity",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestReportActivity",
       "from_schema": "https://ch.paf.link",
       "slots": [
-        "container__affairs"
+        "id",
+        "proceduralRequestReportYear",
+        "ProceduralRequestReportActivity_used"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "affairs",
-          "range": "ParliamentaryAffairIdentifierEntity",
-          "multivalued": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        }
+      "class_uri": "https://ch.paf.link/ProceduralRequestReportActivity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProceduralRequestReportEntity",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestReportEntity",
+      "from_schema": "https://ch.paf.link",
+      "slots": [
+        "id"
       ],
-      "class_uri": "https://ch.paf.link/Container",
+      "slot_usage": {},
+      "class_uri": "https://ch.paf.link/ProceduralRequestReportEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ViewPoint",
+      "definition_uri": "https://ch.paf.link/ViewPoint",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "paf:ViewPoint"
+      ],
+      "slots": [
+        "ParliamentaryAffairIdentifierEntities",
+        "ProceduralRequestReportActivities",
+        "ProceduralRequestReportEntities"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://paf.link/ViewPoint",
+      "tree_root": true,
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "schema.yaml",
-  "source_file_date": "2025-03-05T14:41:40",
-  "source_file_size": 653,
-  "generation_date": "2025-03-05T14:42:37",
+  "source_file_date": "2025-03-05T16:46:03",
+  "source_file_size": 1780,
+  "generation_date": "2025-03-05T16:46:23",
   "@type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/linkml/types.context.jsonld",
