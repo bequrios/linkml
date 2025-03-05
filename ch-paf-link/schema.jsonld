@@ -549,9 +549,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "schema.yaml",
-  "source_file_date": "2025-03-05T16:46:03",
+  "source_file_date": "2025-03-05T16:53:20",
   "source_file_size": 1780,
-  "generation_date": "2025-03-05T16:46:23",
+  "generation_date": "2025-03-05T17:01:08",
   "@type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/linkml/types.context.jsonld",
