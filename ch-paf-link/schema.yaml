@@ -11,11 +11,9 @@ default_range: string
   
 classes:
   ParliamentaryAffairIdentifierEntity:
-    attributes:
-      id:
-        identifier: true
-      parliamentaryAffairIdentifier:
-        required: true
+    slots:
+      - id
+      - parliamentaryAffairIdentifier
     id_prefixes:
       - parl
   Container:
@@ -24,3 +22,8 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: ParliamentaryAffairIdentifierEntity
+slots:
+  id:
+    identifier: true
+  parliamentaryAffairIdentifier:
+    required: true
