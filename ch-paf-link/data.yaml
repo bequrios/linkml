@@ -1,12 +1,11 @@
-parliamentaryAffairIdentifierEntity:
+ParliamentaryAffairIdentifierEntities:
   - id: parl:19.1234
     parliamentaryAffairIdentifier: 19.1234
   - id: parl:19.5678
     parliamentaryAffairIdentifier: 19.5678
-proceduralRequestReportActivity:
+ProceduralRequestReportActivities:
   - id: https://politics.ld.admin.ch/procedural-request/report/2019/activity
     proceduralRequestReportYear: 2019
     used: https://politics.ld.admin.ch/procedural-request/report/2019/entity
-proceduralRequestReportEntity:
-  - id: https://politics.ld.admin.ch/procedural-request/report/2019/entity
-    hallo: world
+ProceduralRequestReportEntities:
+  id: https://politics.ld.admin.ch/procedural-request/report/2019/entity

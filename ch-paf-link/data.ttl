@@ -1,4 +1,6 @@
 @prefix chpaf: <https://ch.paf.link/> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
+@prefix paf: <https://paf.link/> .
 @prefix parl: <https://politics.ld.admin.ch/parliamentary-affair/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -13,13 +15,12 @@ parl:19.5678 a chpaf:ParliamentaryAffairIdentifierEntity ;
     prov:used <https://politics.ld.admin.ch/procedural-request/report/2019/entity> ;
     chpaf:proceduralRequestReportYear "2019"^^xsd:gYear .
 
-<https://politics.ld.admin.ch/procedural-request/report/2019/entity> a chpaf:ProceduralRequestReportEntity ;
-    chpaf:hallo "world" .
+<https://politics.ld.admin.ch/procedural-request/report/2019/entity> a chpaf:ProceduralRequestReportEntity .
 
-[] a chpaf:ParliamentaryDataContainer ;
-    chpaf:parliamentaryAffairIdentifierEntity parl:19.1234,
-        parl:19.5678 ;
-    chpaf:proceduralRequestReportActivity <https://politics.ld.admin.ch/procedural-request/report/2019/activity> ;
-    chpaf:proceduralRequestReportEntity <https://politics.ld.admin.ch/procedural-request/report/2019/entity> .
+[] a paf:ViewPoint ;
+    dcterm:hasPart parl:19.1234,
+        parl:19.5678,
+        <https://politics.ld.admin.ch/procedural-request/report/2019/activity>,
+        <https://politics.ld.admin.ch/procedural-request/report/2019/entity> .
 
 

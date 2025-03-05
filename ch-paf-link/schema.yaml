@@ -3,7 +3,9 @@ name: ch-paf-link
 prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   prov: http://www.w3.org/ns/prov#
+  dcterm: http://purl.org/dc/terms/
   linkml: https://w3id.org/linkml/
+  paf: https://paf.link/
   chpaf: https://ch.paf.link/
   parl: https://politics.ld.admin.ch/parliamentary-affair/
 imports:
@@ -32,23 +34,14 @@ classes:
   ProceduralRequestReportEntity:
     slots:
       - id
-      - hallo
   
-  ParliamentaryDataContainer:
+  ViewPoint:
+    class_uri: paf:ViewPoint
     tree_root: true
-    attributes:
-      - parliamentaryAffairIdentifierEntity:
-          multivalued: true
-          inlined_as_list: true
-          range: ParliamentaryAffairIdentifierEntity
-      - proceduralRequestReportActivity:
-          multivalued: true
-          inlined_as_list: true
-          range: ProceduralRequestReportActivity
-      - proceduralRequestReportEntity:
-          multivalued: true
-          inlined_as_list: true
-          range: ProceduralRequestReportEntity
+    slots:
+      - ParliamentaryAffairIdentifierEntities
+      - ProceduralRequestReportActivities
+      - ProceduralRequestReportEntities
 
 slots:
   id:
@@ -60,9 +53,21 @@ slots:
   proceduralRequestReportYear:
     required: true
     range: gYear
-  hallo:
-    required: true
-    range: string
+  ParliamentaryAffairIdentifierEntities:
+    slot_uri: dcterm:hasPart
+    multivalued: true
+    inlined_as_list: true
+    range: ParliamentaryAffairIdentifierEntity
+  ProceduralRequestReportActivities:
+    slot_uri: dcterm:hasPart
+    multivalued: true
+    inlined_as_list: true
+    range: ProceduralRequestReportActivity
+  ProceduralRequestReportEntities:
+    slot_uri: dcterm:hasPart
+    multivalued: true
+    inlined_as_list: true
+    range: ProceduralRequestReportEntity
 
 types:
   gYear:
