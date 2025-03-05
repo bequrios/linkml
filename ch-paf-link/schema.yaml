@@ -18,3 +18,9 @@ classes:
         required: true
     id_prefixes:
       - parl
+  Container:
+    attributes:
+      affairs:
+        multivalued: true
+        inlined_as_list: true
+        range: ParliamentaryAffairIdentifierEntity

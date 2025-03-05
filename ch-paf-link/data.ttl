@@ -4,4 +4,11 @@
 parl:19.1234 a chpaf:ParliamentaryAffairIdentifierEntity ;
     chpaf:parliamentaryAffairIdentifier "19.1234" .
 
+parl:19.5678 a chpaf:ParliamentaryAffairIdentifierEntity ;
+    chpaf:parliamentaryAffairIdentifier "19.5678" .
+
+[] a chpaf:Container ;
+    chpaf:affairs parl:19.1234,
+        parl:19.5678 .
+
 

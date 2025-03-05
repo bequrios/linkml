@@ -7,9 +7,25 @@
 <https://ch.paf.link.owl.ttl> a owl:Ontology ;
     rdfs:label "ch-paf-link" .
 
+chpaf:Container a owl:Class ;
+    rdfs:label "Container" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom chpaf:ParliamentaryAffairIdentifierEntity ;
+            owl:onProperty chpaf:affairs ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:affairs ] ;
+    skos:inScheme <https://ch.paf.link> .
+
 chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
     rdfs:label "ParliamentaryAffairIdentifierEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
@@ -17,16 +33,14 @@ chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty chpaf:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty chpaf:parliamentaryAffairIdentifier ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty chpaf:parliamentaryAffairIdentifier ] ;
+    skos:inScheme <https://ch.paf.link> .
+
+chpaf:affairs a owl:ObjectProperty ;
+    rdfs:label "affairs" ;
     skos:inScheme <https://ch.paf.link> .
 
 chpaf:id a owl:DatatypeProperty ;
