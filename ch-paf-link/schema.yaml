@@ -15,6 +15,11 @@ default_range: string
   
 classes:
   
+  Activity:
+    class_uri: prov:Activity
+    slots:
+      - id
+  
   ParliamentaryAffairIdentifierEntity:
     slots:
       - id
@@ -27,11 +32,23 @@ classes:
       - id
       - proceduralRequestReportYear
       - used
+      - wasInformedBy
     slot_usage:
       used:
         range: ProceduralRequestReportEntity
+      wasInformedBy:
+        range: Activity
+
 
   ProceduralRequestReportEntity:
+    slots:
+      - id
+
+  ProceduralRequestProposalActivity:
+    slots:
+      - id
+
+  ProceduralRequestInformationActivity:
     slots:
       - id
   
@@ -48,6 +65,9 @@ slots:
     identifier: true
   used:
     slot_uri: prov:used
+  wasInformedBy:
+    slot_uri: prov:wasInformedBy
+    multivalued: true
   parliamentaryAffairIdentifier:
     required: true
   proceduralRequestReportYear:

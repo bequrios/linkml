@@ -1,11 +1,14 @@
 ParliamentaryAffairIdentifierEntities:
-  - id: parl:19.1234
+  - id: parl:19.4092
     parliamentaryAffairIdentifier: 19.1234
-  - id: parl:19.5678
+  - id: parl:18.4276
     parliamentaryAffairIdentifier: 19.5678
 ProceduralRequestReportActivities:
-  - id: https://politics.ld.admin.ch/procedural-request/report/2019/activity
-    proceduralRequestReportYear: 2019
-    used: https://politics.ld.admin.ch/procedural-request/report/2019/entity
+  - id: https://politics.ld.admin.ch/procedural-request/report/2021/activity
+    proceduralRequestReportYear: 2021
+    used: https://politics.ld.admin.ch/procedural-request/report/2021/entity
+    wasInformedBy: 
+      - https://politics.ld.admin.ch/procedural-request/proposal/2021/19.4092/activity
+      - https://politics.ld.admin.ch/procedural-request/information/2021/18.4276/activity
 ProceduralRequestReportEntities:
-  id: https://politics.ld.admin.ch/procedural-request/report/2019/entity
+  id: https://politics.ld.admin.ch/procedural-request/report/2021/entity
