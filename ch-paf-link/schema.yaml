@@ -2,8 +2,9 @@ id: https://ch.paf.link
 name: ch-paf-link
 prefixes:
   linkml: https://w3id.org/linkml/
-  parl: https://politics.ld.admin.ch/parliamentary-affair/
   chpaf: https://ch.paf.link/
+  parl: https://politics.ld.admin.ch/parliamentary-affair/
+  report: https://politics.ld.admin.ch/procedural-request/report/
 imports:
   - linkml:types
 default_prefix: chpaf
@@ -16,14 +17,27 @@ classes:
       - parliamentaryAffairIdentifier
     id_prefixes:
       - parl
-  Container:
+  ProceduralRequestReportActivity:
+    slots:
+      - id
+      - proceduralRequestReportYear
+    id_prefixes:
+      - report
+  ParliamentaryDataContainer:
+    tree_root: true
     attributes:
-      affairs:
+      affair:
         multivalued: true
         inlined_as_list: true
         range: ParliamentaryAffairIdentifierEntity
+      report:
+        multivalued: true
+        inlined_as_list: true
+        range: ProceduralRequestReportActivity
 slots:
   id:
     identifier: true
   parliamentaryAffairIdentifier:
+    required: true
+  proceduralRequestReportYear:
     required: true

@@ -1,5 +1,5 @@
 {
-  "affairs": [
+  "affair": [
     {
       "id": "parl:19.1234",
       "parliamentaryAffairIdentifier": "19.1234"
@@ -9,5 +9,11 @@
       "parliamentaryAffairIdentifier": "19.5678"
     }
   ],
-  "@type": "Container"
+  "report": [
+    {
+      "id": "report:2019",
+      "proceduralRequestReportYear": "2019"
+    }
+  ],
+  "@type": "ParliamentaryDataContainer"
 }

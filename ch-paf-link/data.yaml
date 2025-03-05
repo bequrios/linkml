@@ -1,5 +1,8 @@
-affairs:
+affair:
   - id: parl:19.1234
     parliamentaryAffairIdentifier: 19.1234
   - id: parl:19.5678
     parliamentaryAffairIdentifier: 19.5678
+report:
+  - id: report:2019
+    proceduralRequestReportYear: 2019
