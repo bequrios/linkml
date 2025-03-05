@@ -19,6 +19,18 @@ classes:
     class_uri: prov:Activity
     slots:
       - id
+
+  ProposalActivity:
+    is_a: Activity
+    class_uri: paf:ProposalActivity
+    slots:
+      - id
+
+  InformationActivity:
+    is_a: Activity
+    class_uri: paf:InformationActivity
+    slots:
+      - id
   
   ParliamentaryAffairIdentifierEntity:
     slots:
@@ -45,10 +57,12 @@ classes:
       - id
 
   ProceduralRequestProposalActivity:
+    is_a: ProposalActivity
     slots:
       - id
 
   ProceduralRequestInformationActivity:
+    is_a: InformationActivity
     slots:
       - id
   
