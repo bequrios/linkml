@@ -21,22 +21,22 @@ chpaf:ParliamentaryAffairIdentifierEntity a owl:Class ;
     rdfs:label "ParliamentaryAffairIdentifierEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty chpaf:id ],
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty chpaf:parliamentaryAffairIdentifier ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty chpaf:parliamentaryAffairIdentifier ] ;
+            owl:onProperty chpaf:parliamentaryAffairIdentifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:id ] ;
     skos:inScheme <https://ch.paf.link> .
 
 chpaf:affairs a owl:ObjectProperty ;
