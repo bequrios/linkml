@@ -363,11 +363,16 @@
       "from_schema": "https://ch.paf.link",
       "slot_uri": "https://ch.paf.link/id",
       "identifier": true,
-      "owner": "ProceduralRequestReportEntity",
+      "owner": "ProceduralRequestInformationActivity",
       "domain_of": [
+        "Activity",
+        "ProposalActivity",
+        "InformationActivity",
         "ParliamentaryAffairIdentifierEntity",
         "ProceduralRequestReportActivity",
-        "ProceduralRequestReportEntity"
+        "ProceduralRequestReportEntity",
+        "ProceduralRequestProposalActivity",
+        "ProceduralRequestInformationActivity"
       ],
       "range": "string",
       "required": true,
@@ -386,6 +391,22 @@
         "ProceduralRequestReportActivity"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "wasInformedBy",
+      "definition_uri": "https://ch.paf.link/wasInformedBy",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://www.w3.org/ns/prov#wasInformedBy"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#wasInformedBy",
+      "owner": "ProceduralRequestReportActivity",
+      "domain_of": [
+        "ProceduralRequestReportActivity"
+      ],
+      "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -487,9 +508,74 @@
       "usage_slot_name": "used",
       "range": "ProceduralRequestReportEntity",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProceduralRequestReportActivity_wasInformedBy",
+      "definition_uri": "https://ch.paf.link/wasInformedBy",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "http://www.w3.org/ns/prov#wasInformedBy"
+      ],
+      "is_a": "wasInformedBy",
+      "domain": "ProceduralRequestReportActivity",
+      "slot_uri": "http://www.w3.org/ns/prov#wasInformedBy",
+      "alias": "wasInformedBy",
+      "owner": "ProceduralRequestReportActivity",
+      "domain_of": [
+        "ProceduralRequestReportActivity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "wasInformedBy",
+      "range": "Activity",
+      "multivalued": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
+    {
+      "name": "Activity",
+      "definition_uri": "https://ch.paf.link/Activity",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "prov:Activity"
+      ],
+      "slots": [
+        "id"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Activity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProposalActivity",
+      "definition_uri": "https://ch.paf.link/ProposalActivity",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "paf:ProposalActivity"
+      ],
+      "is_a": "Activity",
+      "slots": [
+        "id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://paf.link/ProposalActivity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "InformationActivity",
+      "definition_uri": "https://ch.paf.link/InformationActivity",
+      "from_schema": "https://ch.paf.link",
+      "mappings": [
+        "paf:InformationActivity"
+      ],
+      "is_a": "Activity",
+      "slots": [
+        "id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://paf.link/InformationActivity",
+      "@type": "ClassDefinition"
+    },
     {
       "name": "ParliamentaryAffairIdentifierEntity",
       "id_prefixes": [
@@ -512,7 +598,8 @@
       "slots": [
         "id",
         "proceduralRequestReportYear",
-        "ProceduralRequestReportActivity_used"
+        "ProceduralRequestReportActivity_used",
+        "ProceduralRequestReportActivity_wasInformedBy"
       ],
       "slot_usage": {},
       "class_uri": "https://ch.paf.link/ProceduralRequestReportActivity",
@@ -527,6 +614,30 @@
       ],
       "slot_usage": {},
       "class_uri": "https://ch.paf.link/ProceduralRequestReportEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProceduralRequestProposalActivity",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestProposalActivity",
+      "from_schema": "https://ch.paf.link",
+      "is_a": "ProposalActivity",
+      "slots": [
+        "id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://ch.paf.link/ProceduralRequestProposalActivity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProceduralRequestInformationActivity",
+      "definition_uri": "https://ch.paf.link/ProceduralRequestInformationActivity",
+      "from_schema": "https://ch.paf.link",
+      "is_a": "InformationActivity",
+      "slots": [
+        "id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://ch.paf.link/ProceduralRequestInformationActivity",
       "@type": "ClassDefinition"
     },
     {
@@ -549,9 +660,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "schema.yaml",
-  "source_file_date": "2025-03-05T16:53:20",
-  "source_file_size": 1780,
-  "generation_date": "2025-03-05T17:01:08",
+  "source_file_date": "2025-03-05T17:34:53",
+  "source_file_size": 2402,
+  "generation_date": "2025-03-07T17:30:52",
   "@type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/linkml/types.context.jsonld",
