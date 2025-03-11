@@ -74,6 +74,12 @@ slots:
   
   resultat:
     slot_uri: chpaf:resultat
-    range: string
+    range: cv_resultat
     required: true
+
+enums:
+  cv_resultat:
+    permissible_values:
+      Ja:
+      Nein:
   

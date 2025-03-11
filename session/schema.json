@@ -8,7 +8,7 @@
                     "type": "string"
                 },
                 "resultat": {
-                    "type": "string"
+                    "$ref": "#/$defs/CvResultat"
                 },
                 "uid": {
                     "type": "string"
@@ -38,6 +38,15 @@
             },
             "title": "Container",
             "type": "object"
+        },
+        "CvResultat": {
+            "description": "",
+            "enum": [
+                "Ja",
+                "Nein"
+            ],
+            "title": "CvResultat",
+            "type": "string"
         },
         "Session": {
             "additionalProperties": false,
