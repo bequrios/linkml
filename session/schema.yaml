@@ -1,0 +1,79 @@
+id: https://ch.paf.link/schema/session
+name: ch-paf-link-session
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+  prov: http://www.w3.org/ns/prov#
+  dcterm: http://purl.org/dc/terms/
+  linkml: https://w3id.org/linkml/
+  paf: https://paf.link/
+  chpaf: https://ch.paf.link/
+  parl: https://politics.ld.admin.ch/parliamentary-affair/
+imports:
+  - linkml:types
+default_prefix: chpaf
+default_range: string
+  
+classes:
+  
+  Session:
+    class_uri: chpaf:Session
+    slots:
+      - uid
+      - name
+      - traktanden
+
+  Traktandum:
+    class_uri: chpaf:Traktandum
+    slots:
+      - uid
+      - name
+      - abstimmungen
+
+  Abstimmung:
+    class_uri: chpaf:Abstimmung
+    slots:
+      - uid
+      - frage
+      - resultat
+
+  Container:
+    tree_root: true
+    attributes:
+      sessionen:
+        multivalued: true
+        inlined_as_list: true
+        range: Session
+
+
+slots:
+  
+  uid:
+    identifier: true
+
+  name:
+    slot_uri: dcterm:title
+    range: string
+    required: true
+  
+  traktanden:
+    slot_uri: chpaf:traktandum
+    range: Traktandum
+    multivalued: true
+    inlined_as_list: true
+  
+  abstimmungen:
+    slot_uri: chpaf:abstimmung
+    range: Abstimmung
+    multivalued: true
+    inlined_as_list: true
+
+  frage:
+    slot_uri: chpaf:frage
+    range: string
+    required: true
+  
+  resultat:
+    slot_uri: chpaf:resultat
+    range: string
+    required: true
+  

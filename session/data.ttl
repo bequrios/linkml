@@ -1,0 +1,38 @@
+@prefix chpaf: <https://ch.paf.link/> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
+@prefix parl: <https://politics.ld.admin.ch/parliamentary-affair/> .
+
+parl:s2025-1 a chpaf:Session ;
+    dcterm:title "Frühlingssession 2025" ;
+    chpaf:traktandum parl:s2025-1_t1 .
+
+parl:s2025-1_t1 a chpaf:Traktandum ;
+    dcterm:title "Fahnenfarbe" ;
+    chpaf:abstimmung parl:s2025-1_t1_a1,
+        parl:s2025-1_t1_a2 .
+
+parl:s2025-1_t1_a1 a chpaf:Abstimmung ;
+    chpaf:frage "Soll die Farbe geändert werden?" ;
+    chpaf:resultat "Ja" .
+
+parl:s2025-1_t1_a2 a chpaf:Abstimmung ;
+    chpaf:frage "Soll die Farbe Auberginen-Oliv werden?" ;
+    chpaf:resultat "Nein" .
+
+parl:s2025-2 a chpaf:Session ;
+    dcterm:title "Sommersession 2025" ;
+    chpaf:traktandum parl:s2025-2_t1 .
+
+parl:s2025-2_t1 a chpaf:Traktandum ;
+    dcterm:title "Landeshymne" ;
+    chpaf:abstimmung parl:s2025-2_t1_a1 .
+
+parl:s2025-2_t1_a1 a chpaf:Abstimmung ;
+    chpaf:frage "Soll die Hymne geändert werden?" ;
+    chpaf:resultat "Nein" .
+
+[] a chpaf:Container ;
+    chpaf:sessionen parl:s2025-1,
+        parl:s2025-2 .
+
+

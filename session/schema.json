@@ -1,0 +1,119 @@
+{
+    "$defs": {
+        "Abstimmung": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "frage": {
+                    "type": "string"
+                },
+                "resultat": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "uid",
+                "frage",
+                "resultat"
+            ],
+            "title": "Abstimmung",
+            "type": "object"
+        },
+        "Container": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "sessionen": {
+                    "items": {
+                        "$ref": "#/$defs/Session"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Container",
+            "type": "object"
+        },
+        "Session": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "traktanden": {
+                    "items": {
+                        "$ref": "#/$defs/Traktandum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "uid": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "uid",
+                "name"
+            ],
+            "title": "Session",
+            "type": "object"
+        },
+        "Traktandum": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "abstimmungen": {
+                    "items": {
+                        "$ref": "#/$defs/Abstimmung"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "uid",
+                "name"
+            ],
+            "title": "Traktandum",
+            "type": "object"
+        }
+    },
+    "$id": "https://ch.paf.link/schema/session",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "sessionen": {
+            "items": {
+                "$ref": "#/$defs/Session"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "title": "ch-paf-link-session",
+    "type": "object",
+    "version": null
+}

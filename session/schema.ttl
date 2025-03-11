@@ -1,0 +1,144 @@
+@prefix chpaf: <https://ch.paf.link/> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+chpaf:Container a owl:Class ;
+    rdfs:label "Container" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom chpaf:Session ;
+            owl:onProperty chpaf:sessionen ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:sessionen ] ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+<https://ch.paf.link/schema/session.owl.ttl> a owl:Ontology ;
+    rdfs:label "ch-paf-link-session" .
+
+chpaf:Session a owl:Class ;
+    rdfs:label "Session" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:traktandum ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom chpaf:Traktandum ;
+            owl:onProperty chpaf:traktandum ] ;
+    skos:exactMatch chpaf:Session ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:abstimmung a owl:ObjectProperty ;
+    rdfs:label "abstimmungen" ;
+    rdfs:range chpaf:Abstimmung ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:sessionen a owl:ObjectProperty ;
+    rdfs:label "sessionen" ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:traktandum a owl:ObjectProperty ;
+    rdfs:label "traktanden" ;
+    rdfs:range chpaf:Traktandum ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:Abstimmung a owl:Class ;
+    rdfs:label "Abstimmung" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:frage ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:frage ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:resultat ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:frage ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:resultat ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:resultat ] ;
+    skos:exactMatch chpaf:Abstimmung ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:Traktandum a owl:Class ;
+    rdfs:label "Traktandum" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty chpaf:uid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom chpaf:Abstimmung ;
+            owl:onProperty chpaf:abstimmung ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty chpaf:abstimmung ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dcterm:title ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty chpaf:uid ] ;
+    skos:exactMatch chpaf:Traktandum ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:frage a owl:DatatypeProperty ;
+    rdfs:label "frage" ;
+    rdfs:range xsd:string ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:resultat a owl:DatatypeProperty ;
+    rdfs:label "resultat" ;
+    rdfs:range xsd:string ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+dcterm:title a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:range xsd:string ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+chpaf:uid a owl:DatatypeProperty ;
+    rdfs:label "uid" ;
+    skos:inScheme <https://ch.paf.link/schema/session> .
+
+

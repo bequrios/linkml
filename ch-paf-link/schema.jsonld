@@ -662,7 +662,7 @@
   "source_file": "schema.yaml",
   "source_file_date": "2025-03-05T17:34:53",
   "source_file_size": 2402,
-  "generation_date": "2025-03-07T17:30:52",
+  "generation_date": "2025-03-07T18:16:08",
   "@type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/linkml/types.context.jsonld",
